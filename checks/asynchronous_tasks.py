@@ -40,5 +40,5 @@ def make_html_and_pdf(request, current_order_id, address, client_name, phone, go
         f.close()
     check = Check.objects.get(id = check_id)
     check.status = 'rendered'
-    check.pdf_file.name = '{}_' + str(printer_check_type) + '.pdf'.format(current_order_id)
+    check.pdf_file.name = str(current_order_id) + '_' + str(printer_check_type) + '.pdf'
     check.save()
