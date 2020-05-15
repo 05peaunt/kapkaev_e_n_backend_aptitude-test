@@ -58,7 +58,7 @@ class CheckView(ListCreateAPIView):
             if serializer.is_valid(raise_exception=True):
                 saved_check = serializer.save()
                 '''отправляем задание на генерацию pdf в очередь'''
-                make_html_and_pdf(request, current_order_id, address, client_name, phone, goods, total, printer.check_type, saved_check.id)
+                make_html_and_pdf.delay(request, current_order_id, address, client_name, phone, goods, total, printer.check_type, saved_check.id)
                 messages.info(self.request, 'Задача в очереди')
         return Response({"message": "чеки успешно созданы"}, status=200)
     '''запрос на получение чеков'''
