@@ -3,7 +3,7 @@
 
 
 
-косяки: 
+недостатки: 
 
 1) проект сделан на Django==2.2.7
 2) команды python manage.py rqworker default нет в docker-compose.yml, нужно запускать вручную перед python manage.py runserver
