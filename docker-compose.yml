@@ -25,7 +25,7 @@ services:
   wkhtmltopdf:
     image: openlabs/docker-wkhtmltopdf-aas
     ports:
-      - "8005:80"
+      - "32769:80"
     depends_on:
       - redis      
 
