@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#from django_rq import job
+from django_rq import job
 
 
 import json
@@ -19,7 +19,7 @@ import base64
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 '''генерация html и pdf с информацией о заказе'''
-#@job
+@job
 def make_html_and_pdf(request, current_order_id, address, client_name, phone, goods, total, printer_check_type, check_id):
     context = {"current_order_id" : current_order_id, "address" : address, "client_name" : client_name, "phone" : phone, "goods" : goods, "total" : total}
     data = render_to_string(str(printer_check_type) +'_check.html', context)
